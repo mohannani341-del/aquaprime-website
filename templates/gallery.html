@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div>
+    <div class="label">AQUAPRIME GALLERY</div>
+    <h1>Our <span>Prawn Seeds.</span></h1>
+    <div class="breadcrumb">Home / Gallery</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="page-content">
+    <p class="copy">AquaPrime prawn seed visuals — showing post-larvae and hatchery handling.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="{{ url_for('static', filename='media/prawn-seed-photo-1.png') }}" alt="AquaPrime prawn seed post-larvae in a white bowl">
+        <span>PRAWN SEED • POST-LARVAE</span>
+      </div>
+
+      <div class="gallery-item">
+        <img src="{{ url_for('static', filename='media/prawn-seed-photo-2.png') }}" alt="Prawn seed post-larvae in a white bowl">
+        <span>PRAWN SEED • QUALITY VISUAL</span>
+      </div>
+    </div>
+
+    <div class="video-large">
+      <video controls muted playsinline preload="metadata"
+        poster="{{ url_for('static', filename='media/prawn-seed-photo-1.png') }}">
+        <source src="{{ url_for('static', filename='media/aquaprime-hatchery-video.mp4') }}" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="page-card" style="margin-top:20px;">
+      <b>AquaPrime Prawn Seeds</b>
+      <p class="copy">Healthy Seeds • Strong Growth • Better Yields.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

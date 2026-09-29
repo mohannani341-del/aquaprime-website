@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ business.name }} {{ business.tagline }} | Nakkapalli</title>
+  <meta name="description" content="AquaPrime Prawn Seeds - quality prawn seed supply and farmer support in Nakkapalli, Tuni, Andhra Pradesh.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+  <a class="logo" href="#home">
+    <span class="logo-shrimp">🦐</span>
+    <span>
+      <b>Aqua</b><strong>Prime</strong>
+      <small>PRAWN SEEDS</small>
+    </span>
+  </a>
+
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#quality">Why Us</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#enquiry">Enquiry</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <a class="call-top" href="tel:+919951553436">Call Now</a>
+  <button class="menu" onclick="toggleMenu()">☰</button>
+</header>
+
+{% if request.args.get("sent") %}
+<div class="success">✓ Your enquiry has been received. AquaPrime will contact you.</div>
+{% endif %}
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">QUALITY AQUACULTURE • FARMER FIRST</div>
+    <h1>Healthy Seeds.<br><span>Strong Growth.</span><br>Better Yields.</h1>
+    <p>Quality-focused prawn seed supply for farmers and aquaculture customers around Nakkapalli and Tuni.</p>
+
+    <div class="buttons">
+      <a class="btn primary" href="tel:+919951553436">📞 Call</a>
+      <a class="btn whatsapp" href="https://wa.me/{{ business.whatsapp }}?text=Hello%20AquaPrime%2C%20I%20am%20interested%20in%20prawn%20seeds." target="_blank">💬 WhatsApp</a>
+    </div>
+
+    <div class="location">📍 {{ business.address }}</div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="pond-circle"></div>
+    <div class="hero-shrimp">🦐</div>
+    <div class="floating-card">
+      <b>Quality Prawn Seeds</b>
+      <span>Farmer Support</span>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div><b>01</b><span>Quality Focus</span></div>
+  <div><b>02</b><span>Farmer Support</span></div>
+  <div><b>03</b><span>Local Service</span></div>
+  <div><b>04</b><span>Direct Contact</span></div>
+</section>
+
+
+<section id="gallery" class="section media-section">
+  <div class="label">AQUACULTURE VISUALS</div>
+  <div class="media-heading">
+    <div>
+      <h2>From <span>ponds to hatchery.</span></h2>
+      <p>Professional aquaculture visuals are used here temporarily. Your own hatchery photos and videos can replace these later.</p>
+    </div>
+  </div>
+
+  <div class="photo-grid">
+    <a class="media-photo" href="https://pixabay.com/photos/the-shrimp-farm-reflect-stilling-2788017/" target="_blank" rel="noopener">
+      <img src="https://cdn.pixabay.com/photo/2017/09/26/09/11/the-shrimp-farm-2788017_1280.jpg" alt="Shrimp farming pond">
+      <span>SHRIMP FARM • STOCK VISUAL</span>
+    </a>
+    <a class="media-photo" href="https://pixabay.com/photos/countryside-river-shrimp-pond-7578605/" target="_blank" rel="noopener">
+      <img src="https://cdn.pixabay.com/photo/2022/11/08/13/49/countryside-7578605_1280.jpg" alt="Shrimp pond landscape">
+      <span>SHRIMP POND • STOCK VISUAL</span>
+    </a>
+  </div>
+
+  <div class="video-card">
+    <div class="video-frame">
+      <video controls muted playsinline preload="metadata"
+        poster="https://images.pexels.com/videos/10145669/camcorder-free-video-free-video-download-marina-10145669.jpeg?auto=compress&dpr=1&h=750&w=1260">
+        <source src="https://videos.pexels.com/video-files/8351584/8351584-uhd_3840_2160_30fps.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="video-info">
+      <div class="label">VIDEO</div>
+      <h3>Shrimp handling & packing visual</h3>
+      <p>Free-to-use Pexels stock footage. This will be replaced with your own AquaPrime hatchery video when you upload it.</p>
+      <a href="https://www.pexels.com/video/man-putting-fresh-shrimp-into-bag-10145669/" target="_blank" rel="noopener">View original source →</a>
+    </div>
+  </div>
+
+  <div class="media-note">
+    <b>Our real media will come next.</b>
+    <span>When you share your hatchery photos/videos, we will replace the stock visuals and make the gallery specifically about AquaPrime.</span>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="label">ABOUT AQUAPRIME</div>
+  <div class="two-col">
+    <h2>Supporting farmers from <span>seed to growth.</span></h2>
+    <div class="copy">
+      <p>AquaPrime Prawn Seeds is a farmer-focused prawn seed business based in Nakkapalli, Tuni, Andhra Pradesh.</p>
+      <p>Our goal is simple — dependable communication, quality-focused seed supply and practical support for aquaculture customers.</p>
+    </div>
+  </div>
+</section>
+
+<section id="quality" class="section light">
+  <div class="label">WHY AQUAPRIME</div>
+  <h2>Built around what <span>farmers need.</span></h2>
+
+  <div class="cards">
+    <article><i>✓</i><h3>Quality Focus</h3><p>Attention to seed quality and customer requirements.</p></article>
+    <article><i>↗</i><h3>Growth Mindset</h3><p>Focused on supporting healthy farming and strong performance.</p></article>
+    <article><i>♧</i><h3>Farmer Support</h3><p>Direct communication and support for customers.</p></article>
+    <article><i>⌁</i><h3>Local Access</h3><p>Conveniently located at Nakkapalli for nearby customers.</p></article>
+  </div>
+</section>
+
+<section class="promise">
+  <div>
+    <div class="label">OUR PROMISE</div>
+    <h2>Quality Prawn Seeds<br><span>for a Brighter Tomorrow.</span></h2>
+  </div>
+  <a class="btn white" href="#enquiry">Enquire Now →</a>
+</section>
+
+<section id="enquiry" class="section enquiry">
+  <div class="label">QUICK ENQUIRY</div>
+  <div class="two-col">
+    <div>
+      <h2>Need prawn seeds for your <span>next crop?</span></h2>
+      <p>Send your requirement and contact number. This form is ready to be connected to a database and admin panel.</p>
+    </div>
+
+    <form action="{{ url_for('enquiry') }}" method="POST">
+      <input name="name" placeholder="Your Name" required>
+      <input name="phone" placeholder="Mobile Number" required>
+      <textarea name="message" rows="4" placeholder="Your requirement / seed enquiry" required></textarea>
+      <button class="btn primary" type="submit">Submit Enquiry →</button>
+    </form>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <div class="label">CONTACT</div>
+  <div class="contact-box">
+    <div>
+      <div class="avatar">UG</div>
+      <h2>{{ business.owner }}</h2>
+      <p>{{ business.designation }}</p>
+    </div>
+
+    <div class="details">
+      <a href="tel:+919951553436">📞 {{ business.phone1 }}</a>
+      <a href="tel:+919652103332">📞 {{ business.phone2 }}</a>
+      <a href="https://wa.me/{{ business.whatsapp }}" target="_blank">💬 WhatsApp</a>
+      <span>📍 {{ business.address }}</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">
+    <span class="logo-shrimp">🦐</span>
+    <span><b>Aqua</b><strong>Prime</strong><small>PRAWN SEEDS</small></span>
+  </div>
+  <p>© 2026 AquaPrime Prawn Seeds. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("nav").classList.toggle("open");
+}
+</script>
+</body>
+</html>

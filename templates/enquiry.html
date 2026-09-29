@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="page-hero">
+  <div>
+    <div class="label">QUICK ENQUIRY</div>
+    <h1>Tell us what you <span>need.</span></h1>
+    <div class="breadcrumb">Home / Enquiry</div>
+  </div>
+</section>
+
+<section class="section enquiry-page">
+  <div class="page-content">
+    <div class="two-col">
+      <div>
+        <h2>Planning your <span>next crop?</span></h2>
+        <p class="copy">Send your requirement and contact number. We can use this enquiry system later with a database and admin dashboard.</p>
+        <p class="copy">For immediate assistance, you can also contact us directly on WhatsApp.</p>
+        <a class="btn whatsapp" href="https://wa.me/{{ business.whatsapp }}?text=Hello%20AquaPrime%2C%20I%20have%20a%20prawn%20seed%20requirement." target="_blank">💬 WhatsApp Enquiry</a>
+      </div>
+
+      <form action="{{ url_for('submit_enquiry') }}" method="POST">
+        <input name="name" placeholder="Your Name" required>
+        <input name="phone" placeholder="Mobile Number" required>
+        <input name="location" placeholder="Farm / Location">
+        <input name="quantity" placeholder="Required Quantity">
+        <textarea name="message" rows="5" placeholder="Your requirement" required></textarea>
+        <button class="btn primary" type="submit">Submit Enquiry →</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

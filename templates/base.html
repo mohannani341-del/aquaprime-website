@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | {{ business.name }} Prawn Seeds</title>
+  <meta name="description" content="AquaPrime Prawn Seeds - quality-focused prawn seed supply in Nakkapalli, Tuni, Andhra Pradesh.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+  <a class="logo" href="{{ url_for('home') }}">
+    <span class="logo-shrimp">🦐</span>
+    <span><b>Aqua</b><strong>Prime</strong><small>PRAWN SEEDS</small></span>
+  </a>
+
+  <nav id="nav">
+    <a class="{{ 'active' if active == 'home' else '' }}" href="{{ url_for('home') }}">Home</a>
+    <a class="{{ 'active' if active == 'about' else '' }}" href="{{ url_for('about') }}">About</a>
+    <a class="{{ 'active' if active == 'why' else '' }}" href="{{ url_for('why_us') }}">Why Us</a>
+    <a class="{{ 'active' if active == 'gallery' else '' }}" href="{{ url_for('gallery') }}">Gallery</a>
+    <a class="{{ 'active' if active == 'enquiry' else '' }}" href="{{ url_for('enquiry') }}">Enquiry</a>
+    <a class="{{ 'active' if active == 'contact' else '' }}" href="{{ url_for('contact') }}">Contact</a>
+  </nav>
+
+  <a class="call-top" href="tel:+919951553436">Call</a>
+  <button class="menu" onclick="toggleMenu()">☰</button>
+</header>
+
+{% if request.args.get("sent") %}
+<div class="success">✓ Your enquiry has been received. AquaPrime will contact you.</div>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<footer>
+  <div class="logo">
+    <span class="logo-shrimp">🦐</span>
+    <span><b>Aqua</b><strong>Prime</strong><small>PRAWN SEEDS</small></span>
+  </div>
+  <p>© 2026 AquaPrime Prawn Seeds. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById("nav").classList.toggle("open");
+}
+
+// Close the mobile menu after selecting a page.
+document.querySelectorAll("#nav a").forEach(function(link){
+  link.addEventListener("click", function(){
+    document.getElementById("nav").classList.remove("open");
+  });
+});
+</script>
+</body>
+</html>
