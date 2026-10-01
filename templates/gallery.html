@@ -8,32 +8,75 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section media-section">
   <div class="page-content">
-    <p class="copy">AquaPrime prawn seed visuals — showing post-larvae and hatchery handling.</p>
+    <div class="media-heading">
+      <div>
+        <div class="label">AQUAPRIME VISUALS</div>
+        <h2>See our <span>hatchery &amp; seeds.</span></h2>
+      </div>
+      <p>Explore AquaPrime prawn seed visuals and customer-shared hatchery videos. Videos are optimized for web viewing while keeping the original footage and sound.</p>
+    </div>
 
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="{{ url_for('static', filename='media/prawn-seed-photo-1.png') }}" alt="AquaPrime prawn seed post-larvae in a white bowl">
+        <img src="{{ url_for('static', filename='media/prawn-seed-photo-1.png') }}" alt="AquaPrime prawn seed post-larvae in a white bowl" loading="lazy">
         <span>PRAWN SEED • POST-LARVAE</span>
       </div>
 
       <div class="gallery-item">
-        <img src="{{ url_for('static', filename='media/prawn-seed-photo-2.png') }}" alt="Prawn seed post-larvae in a white bowl">
+        <img src="{{ url_for('static', filename='media/prawn-seed-photo-2.png') }}" alt="Prawn seed post-larvae in a white bowl" loading="lazy">
         <span>PRAWN SEED • QUALITY VISUAL</span>
       </div>
     </div>
 
     <div class="video-large">
-      <video controls muted playsinline preload="metadata"
+      <video controls muted playsinline preload="none"
         poster="{{ url_for('static', filename='media/prawn-seed-photo-1.png') }}">
         <source src="{{ url_for('static', filename='media/aquaprime-hatchery-video.mp4') }}" type="video/mp4">
+        Your browser does not support HTML5 video.
       </video>
     </div>
 
-    <div class="page-card" style="margin-top:20px;">
-      <b>AquaPrime Prawn Seeds</b>
-      <p class="copy">Healthy Seeds • Strong Growth • Better Yields.</p>
+    <div class="customer-video-heading">
+      <div>
+        <div class="label">CUSTOMER-SHARED FOOTAGE</div>
+        <h2>Hatchery <span>videos.</span></h2>
+      </div>
+      <p>Real footage shared with AquaPrime for our website gallery.</p>
+    </div>
+
+    <div class="customer-video-grid">
+      {% set video_titles = [
+        'Prawn Seed Hatchery Footage 01',
+        'Prawn Seed Hatchery Footage 02',
+        'Prawn Seed Hatchery Footage 03',
+        'Prawn Seed Hatchery Footage 04',
+        'Prawn Seed Hatchery Footage 05',
+        'Prawn Seed Hatchery Footage 06',
+        'Prawn Seed Hatchery Footage 07'
+      ] %}
+      {% for i in range(1, 8) %}
+      <article class="customer-video-card">
+        <div class="customer-video-frame">
+          <video controls playsinline preload="none"
+            poster="{{ url_for('static', filename='media/customer-videos/customer-prawn-video-' ~ i ~ '.jpg') }}">
+            <source src="{{ url_for('static', filename='media/customer-videos/customer-prawn-video-' ~ i ~ '.mp4') }}" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="customer-video-info">
+          <span>🦐 AQUAPRIME • HATCHERY</span>
+          <h3>{{ video_titles[i-1] }}</h3>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="media-note">
+      <b>Interested in prawn seeds?</b>
+      <span>Contact AquaPrime directly for availability and enquiries.</span>
+      <a class="text-link" href="{{ url_for('enquiry') }}">Send an Enquiry →</a>
     </div>
   </div>
 </section>
